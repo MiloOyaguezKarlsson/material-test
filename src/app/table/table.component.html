@@ -1,0 +1,34 @@
+<div>
+  <mat-table #table [dataSource]="tableData">
+
+    <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef> FirstName </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.firstName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef> LastName </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.lastName}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+  </mat-table>
+</div>
+
+<button mat-button (click)="printSelected()">Print selected</button>
