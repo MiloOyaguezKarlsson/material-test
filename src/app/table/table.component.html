@@ -1,5 +1,5 @@
 <div>
-  <mat-table #table [dataSource]="tableData">
+  <mat-table #table [dataSource]="tableData" *ngIf="data">
 
     <ng-container matColumnDef="select">
       <mat-header-cell *matHeaderCellDef>
@@ -16,14 +16,26 @@
       </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="firstName">
-      <mat-header-cell *matHeaderCellDef> FirstName </mat-header-cell>
-      <mat-cell *matCellDef="let person"> {{person.firstName}} </mat-cell>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.name}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="lastName">
-      <mat-header-cell *matHeaderCellDef> LastName </mat-header-cell>
-      <mat-cell *matCellDef="let person"> {{person.lastName}} </mat-cell>
+    <ng-container matColumnDef="adress">
+      <mat-header-cell *matHeaderCellDef> Adress </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.adress}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.email}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="pnr">
+      <mat-header-cell *matHeaderCellDef> Pnr </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.pnr}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.type}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="columns"></mat-header-row>

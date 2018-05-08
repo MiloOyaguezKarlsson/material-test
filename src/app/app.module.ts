@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
 import {MatButtonModule, MatCheckboxModule, MatTableModule} from "@angular/material";
+import {PrivacyvaultdataService} from "./privacyvaultdata.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -16,9 +18,12 @@ import {MatButtonModule, MatCheckboxModule, MatTableModule} from "@angular/mater
     BrowserModule,
     MatTableModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PrivacyvaultdataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
